@@ -1,0 +1,112 @@
+--- origsrc/evas-0.9.9.050/configure.in	2008-09-24 21:20:51.000000000 -0500
++++ src/evas-0.9.9.050/configure.in	2008-12-19 10:42:19.993875000 -0600
+@@ -52,6 +52,10 @@
+ 			lt_enable_auto_import="-Wl,--enable-auto-import"
+                 fi
+                 lt_no_undefined="-no-undefined"
+                 ;;
++        cygwin*)
++                lt_enable_auto_import="-Wl,--enable-auto-import"
++                lt_no_undefined="-no-undefined"
++                ;;
+ esac
+ AC_SUBST(WIN32_CFLAGS)
+--- origsrc/evas-0.9.9.050/src/lib/file/evas_module.c	2008-08-17 02:42:56.000000000 -0500
++++ src/evas-0.9.9.050/src/lib/file/evas_module.c	2008-12-19 05:24:08.025125000 -0600
+@@ -248,7 +248,7 @@
+      default:
+         snprintf(buf, sizeof(buf), "%s/%s/%s/object_%s.dll", em->path, em->name, MODULE_ARCH, em->name);
+    }
+-#elif _WIN32
++#elif defined(_WIN32) || defined(__CYGWIN__)
+    snprintf(buf, sizeof(buf), "%s/%s/%s/module.dll", em->path, em->name, MODULE_ARCH);
+ #else
+    snprintf(buf, sizeof(buf), "%s/%s/%s/module.so", em->path, em->name, MODULE_ARCH);
+--- origsrc/evas-0.9.9.050/src/modules/engines/cairo_x11/Makefile.am	2008-08-17 02:42:56.000000000 -0500
++++ src/evas-0.9.9.050/src/modules/engines/cairo_x11/Makefile.am	2008-12-19 10:40:42.322000000 -0600
+@@ -15,7 +15,7 @@
+ evas_x_main.c
+ 
+ module_la_LIBADD = @CAIRO_LIBS@ @x_libs@ $(top_builddir)/src/modules/engines/cairo_common/libevas_engine_cairo_common.la $(top_builddir)/src/lib/libevas.la
+-module_la_LDFLAGS = -module -avoid-version
++module_la_LDFLAGS = @lt_no_undefined@ -module -avoid-version
+ module_la_LIBTOOLFLAGS = --tag=disable-static
+ module_la_DEPENDENCIES = $(top_builddir)/config.h
+ 
+--- origsrc/evas-0.9.9.050/src/modules/engines/gl_x11/Makefile.am	2008-08-17 02:42:56.000000000 -0500
++++ src/evas-0.9.9.050/src/modules/engines/gl_x11/Makefile.am	2008-12-19 10:39:26.447000000 -0600
+@@ -22,7 +22,7 @@
+ evas_x_main.c
+ 
+ module_la_LIBADD = @gl_libs@ @x_libs@ $(top_builddir)/src/modules/engines/gl_common/libevas_engine_gl_common.la $(top_builddir)/src/lib/libevas.la
+-module_la_LDFLAGS = -module -avoid-version
++module_la_LDFLAGS = @lt_no_undefined@ -module -avoid-version
+ module_la_LIBTOOLFLAGS = --tag=disable-static
+ module_la_DEPENDENCIES = $(top_builddir)/config.h
+ 
+--- origsrc/evas-0.9.9.050/src/modules/engines/glitz_x11/Makefile.am	2008-08-17 02:42:56.000000000 -0500
++++ src/evas-0.9.9.050/src/modules/engines/glitz_x11/Makefile.am	2008-12-19 10:39:33.103250000 -0600
+@@ -25,7 +25,7 @@
+ evas_engine_gradient.c
+ 
+ module_la_LIBADD = @x_libs@ @GLITZ_LIBS@ $(top_builddir)/src/lib/libevas.la
+-module_la_LDFLAGS = -module -avoid-version
++module_la_LDFLAGS = @lt_no_undefined@ -module -avoid-version
+ module_la_LIBTOOLFLAGS = --tag=disable-static
+ module_la_DEPENDENCIES = $(top_builddir)/config.h
+ 
+--- origsrc/evas-0.9.9.050/src/modules/engines/software_16_x11/Makefile.am	2008-08-17 02:42:56.000000000 -0500
++++ src/evas-0.9.9.050/src/modules/engines/software_16_x11/Makefile.am	2008-12-19 10:39:56.790750000 -0600
+@@ -22,7 +22,7 @@
+ evas_x_buffer.c
+ 
+ module_la_LIBADD = @x_libs@ $(top_builddir)/src/lib/libevas.la
+-module_la_LDFLAGS = -module -avoid-version
++module_la_LDFLAGS = @lt_no_undefined@ -module -avoid-version
+ module_la_LIBTOOLFLAGS = --tag=disable-static
+ module_la_DEPENDENCIES = $(top_builddir)/config.h
+ 
+--- origsrc/evas-0.9.9.050/src/modules/engines/software_x11/Makefile.am	2008-08-17 02:42:56.000000000 -0500
++++ src/evas-0.9.9.050/src/modules/engines/software_x11/Makefile.am	2008-12-19 10:40:12.259500000 -0600
+@@ -24,7 +24,7 @@
+ evas_x_main.c
+ 
+ module_la_LIBADD = @x_libs@ $(top_builddir)/src/lib/libevas.la
+-module_la_LDFLAGS = -module -avoid-version
++module_la_LDFLAGS = @lt_no_undefined@ -module -avoid-version
+ module_la_LIBTOOLFLAGS = --tag=disable-static
+ module_la_DEPENDENCIES = $(top_builddir)/config.h
+ 
+--- origsrc/evas-0.9.9.050/src/modules/engines/software_xcb/Makefile.am	2008-08-17 02:42:56.000000000 -0500
++++ src/evas-0.9.9.050/src/modules/engines/software_xcb/Makefile.am	2008-12-19 10:40:18.353250000 -0600
+@@ -24,7 +24,7 @@
+ evas_xcb_main.c
+ 
+ module_la_LIBADD = @XCB_LIBS@ $(top_builddir)/src/lib/libevas.la
+-module_la_LDFLAGS = -module -avoid-version
++module_la_LDFLAGS = @lt_no_undefined@ -module -avoid-version
+ module_la_LIBTOOLFLAGS = --tag=disable-static
+ module_la_DEPENDENCIES = $(top_builddir)/config.h
+ 
+--- origsrc/evas-0.9.9.050/src/modules/engines/xrender_x11/Makefile.am	2008-08-17 02:42:56.000000000 -0500
++++ src/evas-0.9.9.050/src/modules/engines/xrender_x11/Makefile.am	2008-12-19 10:40:24.165750000 -0600
+@@ -25,7 +25,7 @@
+ evas_engine_gradient.c
+ 
+ module_la_LIBADD = @x_libs@ -lXrender $(top_builddir)/src/lib/libevas.la
+-module_la_LDFLAGS = -module -avoid-version
++module_la_LDFLAGS = @lt_no_undefined@ -module -avoid-version
+ module_la_LIBTOOLFLAGS = --tag=disable-static
+ module_la_DEPENDENCIES = $(top_builddir)/config.h
+ 
+--- origsrc/evas-0.9.9.050/src/modules/engines/xrender_xcb/Makefile.am	2008-08-17 02:42:56.000000000 -0500
++++ src/evas-0.9.9.050/src/modules/engines/xrender_xcb/Makefile.am	2008-12-19 10:40:30.103250000 -0600
+@@ -25,7 +25,7 @@
+ evas_engine_gradient.c
+ 
+ module_la_LIBADD = @XCBRENDER_LIBS@ $(top_builddir)/src/lib/libevas.la
+-module_la_LDFLAGS = -module -avoid-version
++module_la_LDFLAGS = @lt_no_undefined@ -module -avoid-version
+ module_la_LIBTOOLFLAGS = --tag=disable-static
+ module_la_DEPENDENCIES = $(top_builddir)/config.h
+ 

@@ -1,0 +1,19 @@
+DESCRIPTION="Enlightenment binary file library"
+HOMEPAGE="http://www.enlightenment.org/"
+SRC_URI="http://download.enlightenment.org/snapshots/2008-09-25/${P}.tar.bz2"
+PATCH_URI="0.9.9-cygwin-modules.patch"
+
+PKG_NAMES="${PN} lib${PN}0 lib${PN}-devel"
+libevas0_CONTENTS="usr/bin/cygevas-0.dll usr/lib/evas/ usr/share/doc/"
+libevas_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+
+CYGCONF_ARGS="
+	--includedir=/usr/include/enlightenment
+	--disable-static
+	--enable-software-xcb
+	--enable-sdl
+	--enable-gl-x11
+	--enable-glitz-x11
+	--enable-image-loader-edb
+	--disable-software-16-wince
+"
