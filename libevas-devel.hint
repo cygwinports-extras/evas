@@ -1,5 +1,5 @@
 category: X11
-requires: cygwin libevas0 libeet-devel libfontconfig-devel libfreetype2-devel
+requires: libevas0 libeet-devel libfontconfig-devel libfreetype2-devel
 external-source: evas
 sdesc: "Enlightenment canvas library (development)"
 ldesc: "Evas is a clean display canvas API for several target display 
