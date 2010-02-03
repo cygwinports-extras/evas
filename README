@@ -5,43 +5,38 @@ that can draw anti-aliased text, smooth super and sub-sampled scaled
 images, alpha-blend objects much and more.
 
 Runtime requirements:
-  cygwin-1.5.25-15
-  libcairo2-1.8.6-1
-  libedb1-1.0.5.042-1
-  libeet1-1.1.0-1
-  libfontconfig1-2.6.0-1
-  libfreetype26-2.3.7-1
-  libgif4-4.1.6-2
-  libGL1-7.2-2
-  libglib2.0_0-2.18.3-1
-  libGLU1-7.2-2
-  libjpeg62-6b-12
-  libpixman1_0-0.12.0-1
-  libpng12-1.2.33-1
-  librsvg2_2-2.22.3-1
-  libSDL1.2_0-1.2.13-2
-  libtiff5-3.8.2-3
-  libX11_6-1.1.5-1
-  libxcb-image0-0.3.2-1
-  libxcb-shm0-1.1-2
-  libxcb1-1.1-2
-  libXext6-1.0.4-1
-  libXrender1-0.9.4-2
-  zlib-1.2.3-2
+  cygwin-1.7.1-1
+  libcairo2-1.8.8-1
+  libeet1-1.2.3-1
+  libeina05-0.9.9.063-1
+  libfontconfig1-2.8.0-1
+  libfreetype6-2.3.11-1
+  libfribidi0-0.19.2-1
+  libgcc1-4.3.4-3
+  libgif4-4.1.6-10
+  libGL1-7.5.2-1
+  libglib2.0_0-2.22.4-2
+  libjpeg7-7-10
+  libpng12-1.2.35-10
+  librsvg2_2-2.26.0-2
+  libtiff5-3.9.2-1
+  libX11_6-1.3.2-2
+  libXext6-1.1.1-1
+  libXrender1-0.9.5-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.63-1
-  automake1.10-1.10.1-2
-  binutils-20080624-2
+  autoconf2.5-2.65-1
+  automake1.10-1.10.3-1
+  binutils-2.19.51-1
   bison-2.3-1
-  cygport-0.4.2-1
+  cygport-0.9.80-1
   flex-2.5.35-1
-  gawk-3.1.6-1
-  gcc-core-3.4.4-3
-  libtool-2.2.6a-1
-  make-3.81-1
-  pkg-config-0.23a-2
+  gawk-3.1.7-1
+  gcc4-core-4.3.4-3
+  libtool-2.2.7a-15
+  make-3.81-2
+  pkg-config-0.23b-10
   sed-4.1.5-2
 
 Canonical website:
@@ -53,104 +48,23 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack evas-0.9.9.050-X-src.tar.bz2
+  unpack evas-0.9.9.063-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./evas-0.9.9.050-X.cygport all
+  cygport ./evas-0.9.9.063-X.cygport all
 
 This will create:
-  /usr/src/evas-0.9.9.050-X-src.tar.bz2
-  /usr/src/libevas-devel-0.9.9.050-X.tar.bz2
-  /usr/src/libevas0-0.9.9.050-X.tar.bz2
+  /usr/src/evas-0.9.9.063-X-src.tar.bz2
+  /usr/src/libevas-devel-0.9.9.063-X.tar.bz2
+  /usr/src/libevas05-0.9.9.063-X.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary packages:
-
-(libevas0)
-  /usr/bin/cygevas-0.dll
-  /usr/lib/evas/modules/engines/buffer/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/buffer/cygwin-i686/module.la
-  /usr/lib/evas/modules/engines/gl_x11/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/gl_x11/cygwin-i686/module.la
-  /usr/lib/evas/modules/engines/glitz_x11/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/glitz_x11/cygwin-i686/module.la
-  /usr/lib/evas/modules/engines/software_16/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/software_16/cygwin-i686/module.la
-  /usr/lib/evas/modules/engines/software_16_sdl/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/software_16_sdl/cygwin-i686/module.la
-  /usr/lib/evas/modules/engines/software_generic/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/software_generic/cygwin-i686/module.la
-  /usr/lib/evas/modules/engines/software_sdl/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/software_sdl/cygwin-i686/module.la
-  /usr/lib/evas/modules/engines/software_x11/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/software_x11/cygwin-i686/module.la
-  /usr/lib/evas/modules/engines/software_xcb/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/software_xcb/cygwin-i686/module.la
-  /usr/lib/evas/modules/engines/xrender_x11/cygwin-i686/module.dll
-  /usr/lib/evas/modules/engines/xrender_x11/cygwin-i686/module.la
-  /usr/lib/evas/modules/loaders/edb/cygwin-i686/module.dll
-  /usr/lib/evas/modules/loaders/edb/cygwin-i686/module.la
-  /usr/lib/evas/modules/loaders/eet/cygwin-i686/module.dll
-  /usr/lib/evas/modules/loaders/eet/cygwin-i686/module.la
-  /usr/lib/evas/modules/loaders/gif/cygwin-i686/module.dll
-  /usr/lib/evas/modules/loaders/gif/cygwin-i686/module.la
-  /usr/lib/evas/modules/loaders/jpeg/cygwin-i686/module.dll
-  /usr/lib/evas/modules/loaders/jpeg/cygwin-i686/module.la
-  /usr/lib/evas/modules/loaders/pmaps/cygwin-i686/module.dll
-  /usr/lib/evas/modules/loaders/pmaps/cygwin-i686/module.la
-  /usr/lib/evas/modules/loaders/png/cygwin-i686/module.dll
-  /usr/lib/evas/modules/loaders/png/cygwin-i686/module.la
-  /usr/lib/evas/modules/loaders/svg/cygwin-i686/module.dll
-  /usr/lib/evas/modules/loaders/svg/cygwin-i686/module.la
-  /usr/lib/evas/modules/loaders/tiff/cygwin-i686/module.dll
-  /usr/lib/evas/modules/loaders/tiff/cygwin-i686/module.la
-  /usr/lib/evas/modules/loaders/xpm/cygwin-i686/module.dll
-  /usr/lib/evas/modules/loaders/xpm/cygwin-i686/module.la
-  /usr/lib/evas/modules/savers/edb/cygwin-i686/module.dll
-  /usr/lib/evas/modules/savers/edb/cygwin-i686/module.la
-  /usr/lib/evas/modules/savers/eet/cygwin-i686/module.dll
-  /usr/lib/evas/modules/savers/eet/cygwin-i686/module.la
-  /usr/lib/evas/modules/savers/jpeg/cygwin-i686/module.dll
-  /usr/lib/evas/modules/savers/jpeg/cygwin-i686/module.la
-  /usr/lib/evas/modules/savers/png/cygwin-i686/module.dll
-  /usr/lib/evas/modules/savers/png/cygwin-i686/module.la
-  /usr/lib/evas/modules/savers/tiff/cygwin-i686/module.dll
-  /usr/lib/evas/modules/savers/tiff/cygwin-i686/module.la
-  /usr/share/doc/evas-0.9.9.050/AUTHORS
-  /usr/share/doc/evas-0.9.9.050/COPYING
-  /usr/share/doc/evas-0.9.9.050/INSTALL
-  /usr/share/doc/evas-0.9.9.050/README
-
-(libevas-devel)
-  /usr/include/enlightenment/Evas.h
-  /usr/include/enlightenment/Evas_Data.h
-  /usr/include/enlightenment/Evas_Engine_Buffer.h
-  /usr/include/enlightenment/Evas_Engine_GL_X11.h
-  /usr/include/enlightenment/Evas_Engine_Glitz_X11.h
-  /usr/include/enlightenment/Evas_Engine_SDL.h
-  /usr/include/enlightenment/Evas_Engine_SDL_16.h
-  /usr/include/enlightenment/Evas_Engine_Software_X11.h
-  /usr/include/enlightenment/Evas_Engine_Software_Xcb.h
-  /usr/include/enlightenment/Evas_Engine_XRender_X11.h
-  /usr/lib/libevas.dll.a
-  /usr/lib/libevas.la
-  /usr/lib/pkgconfig/evas-glitz-x11.pc
-  /usr/lib/pkgconfig/evas-opengl-x11.pc
-  /usr/lib/pkgconfig/evas-software-buffer.pc
-  /usr/lib/pkgconfig/evas-software-sdl.pc
-  /usr/lib/pkgconfig/evas-software-x11.pc
-  /usr/lib/pkgconfig/evas-software-xcb.pc
-  /usr/lib/pkgconfig/evas-xrender-x11.pc
-  /usr/lib/pkgconfig/evas.pc
-
-------------------
-
 Port Notes:
 
------ version 0.9.9.050-1 -----
-Initial release for Cygwin.
+----- version 0.9.9.063-1 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:

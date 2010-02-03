@@ -1,5 +1,6 @@
 category: X11
-sdesc: "Enlightenment canvas library (sources)"
+requires: libeina05 libevas05 libgcc1
+sdesc: "Enlightenment canvas library (utilities)"
 ldesc: "Evas is a clean display canvas API for several target display 
 systems that can draw anti-aliased text, smooth super and sub-sampled 
 scaled images, alpha-blend objects much and more."

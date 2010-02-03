@@ -1,0 +1,19 @@
+DESCRIPTION="Enlightenment binary file library"
+HOMEPAGE="http://www.enlightenment.org/"
+SRC_URI="http://download.enlightenment.org/snapshots/2009-12-02/${P}.tar.bz2"
+
+PATCH_URI="063-cygwin-modules.patch
+           063-autoconf263.patch"
+
+PKG_NAMES="${PN} lib${PN}05 lib${PN}-devel"
+evas_CONTENTS="usr/bin/*.exe usr/share/doc/"
+libevas05_CONTENTS="usr/bin/*-05-0.dll usr/lib/evas/"
+libevas_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+
+DISTCLEANFILES="aclocal.m4"
+
+CYGCONF_ARGS="
+	--includedir=/usr/include/enlightenment
+	--disable-static
+	--enable-gl-x11
+"
