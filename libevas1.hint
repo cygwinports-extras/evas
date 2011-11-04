@@ -1,5 +1,5 @@
 category: X11
-requires: libcairo2 libeet1 libeina05 libfontconfig1 libfreetype6 libfribidi0 libgcc1 libgif4 libGL1 libglib2.0_0 libjpeg7 libpng12 librsvg2_2 libtiff5 libX11_6 libXext6 libXrender1
+requires: libcairo2 libeet1 libeina1 libfontconfig1 libfreetype6 libfribidi0 libgcc1 libgif4 libGL1 libglib2.0_0 libjpeg8 libpng14 librsvg2_2 libtiff5 libX11_6 libXext6 libXrender1
 external-source: evas
 sdesc: "Enlightenment canvas library (runtime)"
 ldesc: "Evas is a clean display canvas API for several target display 

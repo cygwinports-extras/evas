@@ -1,0 +1,22 @@
+--- origsrc/evas-1.0.1/src/lib/file/evas_module.c	2011-04-19 01:50:23.000000000 -0500
++++ src/evas-1.0.1/src/lib/file/evas_module.c	2011-11-03 18:32:01.068647200 -0500
+@@ -327,7 +327,7 @@ evas_module_unregister(const Evas_Module
+ # define EVAS_MODULE_NAME_IMAGE_LOADER "loader_%s.dll"
+ # define EVAS_MODULE_NAME_ENGINE "engine_%s.dll"
+ # define EVAS_MODULE_NAME_OBJECT "object_%s.dll"
+-#elif _WIN32
++#elif _WIN32 || defined(__CYGWIN__)
+ # define EVAS_MODULE_NAME_IMAGE_SAVER "module.dll"
+ # define EVAS_MODULE_NAME_IMAGE_LOADER "module.dll"
+ # define EVAS_MODULE_NAME_ENGINE "module.dll"
+--- origsrc/evas-1.0.1/src/modules/engines/gl_x11/Makefile.am	2011-04-19 01:50:23.000000000 -0500
++++ src/evas-1.0.1/src/modules/engines/gl_x11/Makefile.am	2011-11-03 18:32:28.384294900 -0500
+@@ -29,7 +29,7 @@ pkg_LTLIBRARIES = module.la
+ 
+ module_la_SOURCES = $(GL_X11_SOURCES)
+ module_la_LIBADD = @EINA_LIBS@ $(GL_X11_LIBADD) $(top_builddir)/src/lib/libevas.la @dlopen_libs@
+-module_la_LDFLAGS = -module -avoid-version
++module_la_LDFLAGS = -module -avoid-version -no-undefined
+ module_la_LIBTOOLFLAGS = --tag=disable-static
+ 
+ else
