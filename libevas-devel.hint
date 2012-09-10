@@ -1,7 +1,0 @@
-category: X11
-requires: libevas1 libeet-devel libeina-devel libfontconfig-devel libfreetype-devel libfribidi-devel
-external-source: evas
-sdesc: "Enlightenment canvas library (development)"
-ldesc: "Evas is a clean display canvas API for several target display 
-systems that can draw anti-aliased text, smooth super and sub-sampled 
-scaled images, alpha-blend objects much and more."
