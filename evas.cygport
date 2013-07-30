@@ -1,16 +1,18 @@
 NAME="evas"
-VERSION=1.7.4
+VERSION=1.7.7
 RELEASE=1
-CATEGORY="X11"
+CATEGORY="Libs"
 SUMMARY="Enlightenment canvas library"
 DESCRIPTION="Evas is a clean display canvas API for several target display
 systems that can draw anti-aliased text, smooth super and sub-sampled scaled
 images, alpha-blend objects much and more."
 HOMEPAGE="http://www.enlightenment.org/"
-SRC_URI="http://download.enlightenment.org/releases/${P}.tar.bz2"
+SRC_URI="http://download.enlightenment.org/releases/evas-${VERSION}.tar.bz2"
 PATCH_URI="1.0.1-cygwin-modules.patch"
 
-PKG_NAMES="${PN} lib${PN}1 lib${PN}-devel"
+PKG_NAMES="${NAME} lib${NAME}1 lib${NAME}-devel"
+evas_CATEGORY="X11"
+evas_SUMMARY="${SUMMARY} (cache server)"
 evas_CONTENTS="usr/bin/*.exe usr/share/"
 libevas1_CONTENTS="usr/bin/*-1.dll usr/lib/evas/"
 libevas_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
